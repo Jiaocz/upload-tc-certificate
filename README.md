@@ -47,3 +47,9 @@ node index.js <cert_path> <key_path> <common_name> <secret_id> <secret_key>
 
 ## 示例
 例如你是使用[acme.sh](https://acme.sh)生成的泛域名证书，可以直接在`--reloadcmd`中载入命令，以达到续期后自动更新。
+```shell
+acme.sh --install-cert -d *.your.domain \
+--key-file /path/to/privkey.pem         \
+--fullchain-file /path/to/fullchain.pem \
+--reloadcmd "service nginx reload && node /path/to/script/index.js /path/to/fullchain.pem /path/to/privkey.pem *.your.domain XXXXXXX XXXXXXX > /log/upload-cert.log"
+```
