@@ -1,0 +1,27 @@
+{
+  "name": "upload-tc-certificate",
+  "version": "1.0.0",
+  "description": "Upload and replace old certificate, and configure the related cdn resources.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "do": "node index.js",
+    "help": "node index.js help"
+  },
+  "author": {
+    "email": "me@orangii.cn",
+    "name": "Orangii|橙梓",
+    "url": "https://orangii.cn/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jiaocz/upload-tc-certificate.git"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "inquirer": "^8.2.2",
+    "node-fetch": "^3.2.3",
+    "tencentcloud-sdk-nodejs": "^4.0.315"
+  }
+}
