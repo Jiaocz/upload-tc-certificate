@@ -21,7 +21,7 @@ node index.js <cert_path> <key_path> <common_name> <secret_id> <secret_key>
 | -- | -- |
 | `cert_path` | 存放证书公钥的路径，可以绝对可以相对 |
 | `key_path` | 存放证书私钥的路径，可以绝对可以相对|
-| `common_name` | 证书的备注，也用于程序判断是否为同一证书，**不同证书请保证此参数不通，否则会产生冲突，也可能会影响CDN的HTTPS** |
+| `common_name` | 证书的备注，也用于程序判断是否为同一证书，**不同证书请保证此参数不同，否则会产生冲突，也可能会影响CDN的HTTPS** |
 | `secret_id` | 您的腾讯云API SecretID |
 | `secret_key` | 您的腾讯云API SecretKey |
 
