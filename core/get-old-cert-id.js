@@ -19,7 +19,7 @@ const search = async (clientConfig, common_name) => {
     }
 
     const { Certificates } = res;
-    if (Certificates && Certificates[0].Alias === common_name) {
+    if (Certificates && Certificates.length !== 0 && Certificates[0].Alias === common_name) {
       return Certificates[0].CertificateId;
     }
     else return null;

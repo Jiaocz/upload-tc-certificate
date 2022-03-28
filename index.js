@@ -58,7 +58,7 @@ console.log(`Previous cert ID: ${certId}`);
 console.log(chalk.italic.green("\nGetting CDN Domains which is previously bind the certificate..."));
 import getOldCertBind from "./core/get-binding-cdn.js";
 let services;
-if(certId === "") {
+if(certId === null) {
     console.log(chalk.underline.green("Since no previous cert found, skip this step..."));
 } else {
     services = await getOldCertBind.get(sslClientConfig, certId);
@@ -88,8 +88,9 @@ console.log(`New cert ID: ${newCertId}`);
 // 修改服务绑定证书
 console.log(chalk.italic.green("\nUpdating CDN service HTTPS setting..."));
 import updateCdnConfig from './core/update-cdn-https.js'
-if(certId === null || certId === '') {
+if(certId === null) {
     console.log(chalk.underline.green("Since no previous cert found, skip this step..."));
+    console.log(chalk.green('Please manually add the cert to CDN service. We will try to update the cert next time you run.'));
 } else {
     for(let i = 0; i < services.length; i++) {
         await updateCdnConfig.update(cdnClientConfig, services[i], newCertId);
@@ -99,7 +100,7 @@ if(certId === null || certId === '') {
 // 删除旧证书
 console.log(chalk.italic.green("\nRemoving old certificate..."));
 import removeCert from "./core/remove-cert.js";
-if(certId === null || certId === '') {
+if(certId === null) {
     console.log(chalk.underline.green("Since no previous cert found, skip this step..."));
 } else {
     const removeResult = await removeCert.removeCert(sslClientConfig, certId);
